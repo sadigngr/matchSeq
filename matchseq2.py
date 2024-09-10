@@ -14,7 +14,7 @@ from Utils.UniqueRegions2 import findRegions
 
 def matchSeq():
     locs = getLocsList(coords)
-    matchTable = HashTable(64)#TODO Tüm eşleşme değerlerini hash table'a yükle
+    matchTable = HashTable(64)
     for pairs in locs:
 
         start1 = int(pairs[0][0])
