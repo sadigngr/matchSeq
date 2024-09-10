@@ -16,8 +16,13 @@ python3 matchseq2.py -seqFiles [Sekans Dosyaları] -coords [NUCMER'in oluşturdu
 
 Çalışması bittikten sonra program sonuclar.txt adında bir dosya oluşturacaktır. Bu dosya %100 eşleşen 18-30 bazlık ikili sekansları, bu sekanslar arasında kalan birbiri arasında eşsiz bölgeleri ve sonuçta oluşturulan ve yukarıdakilerin hepsini içeren 250-300 bazlık bölgeleri içerir.
 
-Örnek olarak ATGC------ATGCA(Eşsiz Bölge)-------------AGTC(Eşsiz Bölge)-------------CTGGA ve
-            ATGC------------AAGC(Eşsiz Bölge)-------------------------CTGGA
+Örnek olarak 
+
+ATGC------ATTCG(Eşsiz Bölge)-------------AGTC(Eşsiz Bölge)-------------CTGGA 
+
+ve
+
+ATGC------------AAGC(Eşsiz Bölge)-------------------------CTGGA
 
 sekansları kullanılacaktır. 
 
@@ -33,9 +38,9 @@ Her bir sekans için dosyada 11 satır ayrılmıştır. Satır satır olmak üze
 
 5. Satır : > ile başlar, birinci sekansı ve örnek numarasını belirtir. Örn. >Seq121
 
-6. Satır : Birinci sekansı içerir. Örn. ATGC-------------------AGTC(Eşsiz Bölge)-------------CTGGA
+6. Satır : Birinci sekansı içerir. Örn. ATGC-------ATTCG(Eşsiz Bölge)------------AGTC(Eşsiz Bölge)-------------CTGGA
 
-7. Satır : # ile başlar, birinci sekanstaki eşsiz bölgeleri ve sekansın içindeki konumlarını verir. Örn. [(51, 'ATGCA'),(210, 'AGTC')]
+7. Satır : # ile başlar, birinci sekanstaki eşsiz bölgeleri ve sekansın içindeki konumlarını verir. Örn. [(51, 'ATTCG'),(210, 'AGTC')]
 
 8. Satır : > ile başlar, ikinci sekansı belirtir, örnek numarasının yanına ".1" koyarak oluşturulur. Örn. >Seq121.1
 
