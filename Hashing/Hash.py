@@ -2,7 +2,7 @@ from Utils.Bases import _bases
 
 class Hasher:
 
-    def __init__(self,pattern : "",_hash = 0):
+    def __init__(self,pattern = "",_hash = 0 ):
         self._multiplier = 10
         self._hash = _hash
 

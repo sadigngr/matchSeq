@@ -58,7 +58,7 @@ def findRegions(seq1, seq2, region_size, similarity_threshold):
     hashed_seq2 = hash_sequence(seq2, region_size)
 
     if "N" not in seq1 and "N" not in seq2:
-        with ThreadPoolExecutor(max_workers=4) as executor:
+        with ThreadPoolExecutor() as executor:
             future = executor.submit(find_unique_regions, seq1, seq2, hashed_seq1, hashed_seq2, region_size, similarity_threshold)
             unique_seq1, unique_seq2 = future.result()
 

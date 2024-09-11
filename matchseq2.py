@@ -88,6 +88,7 @@ if __name__ == "__main__":
     locList = []
     seqSayac = 1
     seqSayac1 = 1
+
     for key in range(64):
 
         for _ in matchTable.getHash(key):

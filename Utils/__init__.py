@@ -1,1 +1,1 @@
-__all__ = ["Bases","Errors"]
+__all__ = ["Bases","Errors","locs","UniqueRegions2"]

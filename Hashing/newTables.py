@@ -174,7 +174,7 @@ def makeTable(buffer,initLoc,size):
 
 if __name__ == "__main__":
     x = time.time()
-    a = HashTable()
+    a = HashTable(64)
     a.insert(113,6)
     a.insert(177,9)
     a.insert(113,8)
@@ -193,6 +193,8 @@ if __name__ == "__main__":
     print(a)
     #a.deleteIndex(49)
     #a.print_table()
+
+    print("BASARILI")
     y = time.time()
 
 
