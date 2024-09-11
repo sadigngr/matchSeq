@@ -15,7 +15,7 @@ class Hasher:
         else:
             self._pattern_l = len(str(_hash))
 
-
+    
     def __eq__(self,other):
         return self._hash == other._hash
 

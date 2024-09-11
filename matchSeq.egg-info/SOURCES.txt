@@ -2,7 +2,6 @@ README.md
 setup.py
 Hashing/Hash.py
 Hashing/IO.py
-Hashing/Match.py
 Hashing/__init__.py
 Hashing/newTables.py
 Utils/Bases.py
