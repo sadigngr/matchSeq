@@ -68,10 +68,10 @@ def matchSeq():
 
     return matchTable
 
-if __name__ == "__main__":
+def main():
     path1,path2,coords = None,None,None
 
-    if sys.argv[1] == "-help":
+    if sys.argv[1] == "-h" or "--help" and len(sys.argv) == 2:
         print("Usage : python3 matchTable.py -seqFiles [path-to-first-seqFile] [path-to-second-seqFile] -coords [path-to-coordsFile]")
         exit()
 
@@ -149,3 +149,7 @@ if __name__ == "__main__":
         # >SeqX = EXACT MATCHLER VE ARASINDA KALAN BOLGEYI IFADE EDER ALT SATIRDA SEKANS BULUNUR. ART ARDA IKI TANE YAZDIRIR
         # + = YENI ORNEGE GECISI IFADE EDER
         # # UNIQUE BOLGELERIN BIR LISTESINI IFADE EDER
+
+
+if __name__ == "__main__" : 
+    main()
