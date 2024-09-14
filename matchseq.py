@@ -12,7 +12,7 @@ from Utils.Bases import _reverse_bases
 from Utils.UniqueRegions2 import findRegions
 
 
-def matchSeq():
+def matchSeq(coords,buffer1,buffer2):
     locs = getLocsList(coords)
     matchTable = HashTable(64)
     for pairs in locs:
@@ -84,7 +84,7 @@ def main():
         raise BadArgsError()
         # Custom Error, Utils.Errors modulunun icinde yer aliyor.
     buffer1,buffer2 = _read(path1,path2)
-    matchTable = matchSeq()
+    matchTable = matchSeq(coords,buffer1,buffer2)
     locList = []
     seqSayac = 1
     seqSayac1 = 1

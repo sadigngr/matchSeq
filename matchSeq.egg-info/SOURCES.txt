@@ -1,4 +1,5 @@
 README.md
+matchseq.py
 setup.py
 Hashing/Hash.py
 Hashing/IO.py
@@ -8,7 +9,6 @@ Utils/Bases.py
 Utils/Errors.py
 Utils/UniqueRegions.py
 Utils/UniqueRegions2.py
-Utils/UniqueRegions3.py
 Utils/__init__.py
 Utils/locs.py
 matchSeq.egg-info/PKG-INFO
