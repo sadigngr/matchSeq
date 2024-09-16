@@ -9,6 +9,7 @@ class Seq:
         self._loc = [_loc]
         self._next_node = _next_node
 
+
 class HashTable:
 
     def __init__(self,max_size):
@@ -45,6 +46,8 @@ class HashTable:
     def __repr__(self):#TODO Tablo objesini belirtmek icin kullanilacak
         pass
 
+    def __len__(self):
+        return self._MAX_SIZE
 
     def getHash(self,key : int) -> list[int]:
         _hashList = []
@@ -60,7 +63,7 @@ class HashTable:
             return _hashList
         else:
             return
-    def insert(self,_hash : int,_loc : int) -> None:
+    def insert(self,_hash : int,_loc : int) -> None:    
         key = _hash%self._MAX_SIZE
 
         if self._table[key]:
