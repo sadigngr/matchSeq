@@ -15,13 +15,20 @@ def main():
     path1,path2,coords = None,None,None
 
     if sys.argv[1] == "-h" or "--help" and len(sys.argv) == 2:
-        print("Usage : python3 matchTable.py -seqFiles [path-to-first-seqFile] [path-to-second-seqFile] -coords [path-to-coordsFile]")
+        print("Usage : python3 matchTable.py --seqFiles [path-to-first-seqFile] [path-to-second-seqFile] --coords [path-to-coordsFile]")
+        print()
+        print("-h or --help : Shows this page")
+        print()
+        print("-s or --seqFiles : Takes the necessary sequence files.")
+        print()
+        print("-c or --cords : Takes the coords table from NUCMER.")
+        print()
         exit()
 
     for i,j in enumerate(sys.argv):
-        if j == "-seqFiles":
+        if j == "-s" or "--seqFiles":
             path1,path2 = sys.argv[i+1],sys.argv[i+2]
-        elif j  == "-coords":
+        elif j  == "-c" or "--coords":
             coords = sys.argv[i+1]
     if path1 is None or path2 is None or coords is None:
         raise BadArgsError()
