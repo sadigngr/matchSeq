@@ -102,6 +102,7 @@ class HashTable:
     def deleteIndex(self,key) -> None:
         nodeList = []
         if self._table[key]:
+
             while self._table[key]._next_node:
                 nodeList.append(self._table[key]._next_node)
                 self._table[key] = self._table[key]._next_node
@@ -172,6 +173,9 @@ def makeTable(buffer,initLoc,size):
                 loc += 1
                 if len(str(Hash._hash)) > 2:
                     hashTable.insert(Hash._hash,loc)
+        
+        if loc % 1_000_000 == 0:
+            print(loc)
 
     return hashTable
 
