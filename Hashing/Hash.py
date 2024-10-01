@@ -1,3 +1,5 @@
+import time
+
 from Utils.Bases import _bases
 
 class Hasher:
@@ -48,3 +50,24 @@ class Hasher:
     @hash.setter
     def hash(self,value):
         self._hash = value
+
+if __name__ == "__main__":
+    with open("/home/sadi/Data/Homo_sapiens.GRCh38.dna.chromosome.11.fa.masked","r") as f:
+        f.readline()
+        buffer = f.read().replace("\n","")
+    x = 0
+    a = time.time()
+    print("Selam!")
+    newHash = Hasher(buffer[:18])
+    print(newHash._hash)
+    for char in buffer[18:]:
+        if char != "N":
+            newHash._rollHash(char)
+        x += 1
+        if x % 1_000_000 == 0:
+            print(x)
+            print(newHash._hash)
+
+    b = time.time()
+
+    print(f"Islem {b - a} saniye surdu.")    

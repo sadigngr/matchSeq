@@ -13,8 +13,8 @@ def matchCoords(coords,buffer1,buffer2):
         end1 = int(pairs[0][1])
         start2 = int(pairs[1][0])
         end2 = int(pairs[1][1])
-        table1 = makeTable(buffer1[start1:end1],start1,64)
-        table2 = makeTable(buffer2[start2:end2],start2,64)
+        table1 = makeTable(buffer1[start1:end1],start1,3,64)
+        table2 = makeTable(buffer2[start2:end2],start2,3,64)
         for key in range(64):
             if table1.getHash(key) is not None and table2.getHash(key) is not None:
                 for _hash in table1.getHash(key):

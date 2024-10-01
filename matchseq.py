@@ -2,8 +2,6 @@ import sys
 
 #TODO argparse ile daha düzgün bir argument parsing yapılacak.
 
-from Hashing.newTables import HashTable,makeTable
-from Hashing.Hash import Hasher
 from Hashing.IO import _read
 
 from Utils.Errors import BadArgsError

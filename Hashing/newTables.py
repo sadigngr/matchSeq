@@ -157,21 +157,22 @@ class HashTable:
             _list = []
         return _llist
 
-def makeTable(buffer,initLoc,size):
+def makeTable(buffer,initLoc,hashSize,size):
     hashTable = HashTable(size)
+    _hashSize = hashSize - 1
 
-    Hash = Hasher(buffer[:3])
-    loc = initLoc + 3
+    Hash = Hasher(buffer[:hashSize])
+    loc = initLoc + hashSize
     hashTable.insert(Hash._hash,loc)
 
-    for char in buffer[3:]:
+    for char in buffer[hashSize:]:
         match char:
             case "N":
                 loc += 1
             case _:
                 Hash._rollHash(char)
                 loc += 1
-                if len(str(Hash._hash)) > 2:
+                if len(str(Hash._hash)) > _hashSize:
                     hashTable.insert(Hash._hash,loc)
         
         if loc % 1_000_000 == 0:
@@ -198,11 +199,16 @@ if __name__ == "__main__":
     a.deleteHash(369)
     a.deleteHash(177)
     print(a)
+
     #a.deleteIndex(49)
     #a.print_table()
 
-    print("BASARILI")
-    y = time.time()
+    with open("/home/sadi/Data/Homo_sapiens.GRCh38.dna.chromosome.11.fa.masked","r") as f:
+        f.readline()
+        buffer = f.read().replace("\n","")
 
+    hashTable = makeTable(buffer,1,18,1000000007)
+    
+    y = time.time()
 
     print(f"Islem {y - x} saniye surdu.")
