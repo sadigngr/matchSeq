@@ -1,5 +1,18 @@
 import sys
 
+helpPage = """
+
+Usage : python3 matchTable.py --seqFiles [path-to-first-seqFile] [path-to-second-seqFile] --coords(optional) [path-to-coordsFile]
+
+Arguments : 
+
+    -h or --help : Shows this page
+
+    -s or --seqFiles : Takes the necessary sequence files.
+
+    -c or -coords : Takes the coords table from NUCMER. It is optional.
+"""
+
 #TODO argparse ile daha düzgün bir argument parsing yapılacak.
 
 from Hashing.IO import _read
@@ -7,32 +20,39 @@ from Hashing.IO import _read
 from Utils.Errors import BadArgsError
 from Utils.Bases import _reverse_bases
 from Utils.UniqueRegions2 import findRegions
+
 from Utils.MatchWithCoords import matchCoords
+from Utils.MatchWithoutCoords import matchWCoords
 
 def main():
     path1,path2,coords = None,None,None
-
-    if sys.argv[1] == "-h" or "--help" and len(sys.argv) == 2:
-        print("Usage : python3 matchTable.py --seqFiles [path-to-first-seqFile] [path-to-second-seqFile] --coords [path-to-coordsFile]")
-        print()
-        print("-h or --help : Shows this page")
-        print()
-        print("-s or --seqFiles : Takes the necessary sequence files.")
-        print()
-        print("-c or --cords : Takes the coords table from NUCMER.")
-        print()
+    try:
+        if sys.argv[1] == "-h" or "--help" and len(sys.argv) == 2:
+            print(helpPage)
+            exit()
+    except IndexError:
+        print(helpPage)
+        print("No arguments have been given. Quitting...\n")
         exit()
-
+    print(sys.argv)
     for i,j in enumerate(sys.argv):
-        if j == "-s" or "--seqFiles":
+        if j == "-s" or j == "--seqFiles":
             path1,path2 = sys.argv[i+1],sys.argv[i+2]
-        elif j  == "-c" or "--coords":
+        elif j  == "-c" or j == "--coords":
             coords = sys.argv[i+1]
-    if path1 is None or path2 is None or coords is None:
+    if path1 is None or path2 is None:
         raise BadArgsError()
+
         # Custom Error, Utils.Errors modulunun icinde yer aliyor.
-    buffer1,buffer2 = _read(path1,path2)
-    matchTable = matchCoords(coords,buffer1,buffer2)
+    
+    if path1 is not None and path2 is not None and coords is None:
+        buffer1,buffer2 = _read(path1,path2)
+        matchTable = matchWCoords(buffer1,buffer2)
+    elif path1 and path2 and coords:
+        buffer1,buffer2 = _read(path1,path2)
+        matchTable = matchCoords(coords,buffer1,buffer2)
+    
+    
     locList = []
     seqSayac = 1
     seqSayac1 = 1

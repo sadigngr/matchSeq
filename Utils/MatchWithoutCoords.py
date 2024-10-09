@@ -1,21 +1,11 @@
 from Hashing.newTables import HashTable,makeTable
 from Hashing.Hash import Hasher
 
+def matchWCoords(buffer1,buffer2):
+    table1 = makeTable(buffer1,1,3,64)
+    table2 = makeTable(buffer2,1,3,64)
 
-from Utils.locs import getLocsList
-
-def matchCoords(coords,buffer1,buffer2):
-    locs = getLocsList(coords)
-    matchTable = HashTable(64)
-    for pairs in locs:
-
-        start1 = int(pairs[0][0])
-        end1 = int(pairs[0][1])
-        start2 = int(pairs[1][0])
-        end2 = int(pairs[1][1])
-        table1 = makeTable(buffer1[start1:end1],start1,3,64)
-        table2 = makeTable(buffer2[start2:end2],start2,3,64)
-        for key in range(64):
+    for key in range(64):
             if table1.getHash(key) is not None and table2.getHash(key) is not None:
                 for _hash in table1.getHash(key):
                     locs1 = table1.getValue(_hash)
@@ -57,5 +47,5 @@ def matchCoords(coords,buffer1,buffer2):
 
                                 matchHash = Hasher(ex,0)
                                 matchTable.insert(matchHash._hash,[ex_loc1,l1,ex_loc2,l2])
-
+    
     return matchTable

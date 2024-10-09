@@ -7,7 +7,8 @@ Hashing/__init__.py
 Hashing/newTables.py
 Utils/Bases.py
 Utils/Errors.py
-Utils/UniqueRegions.py
+Utils/MatchWithCoords.py
+Utils/MatchWithoutCoords.py
 Utils/UniqueRegions2.py
 Utils/__init__.py
 Utils/locs.py

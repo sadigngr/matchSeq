@@ -7,5 +7,5 @@ class MaxSizeError(Exception):
 class BadArgsError(Exception):
     
     def __init__(self):
-        self.errorMsg ="Bad arguments were given. Usage : python3 matchTable.py -seqFiles [path-to-first-seqFile] [path-to-second-seqFile] -coords [path-to-coordsFile]"
+        self.errorMsg ="Bad arguments were given. Usage : python3 matchTable.py -seqFiles [path-to-first-seqFile] [path-to-second-seqFile] -coords(optional) [path-to-coordsFile]"
         super().__init__(self.errorMsg)

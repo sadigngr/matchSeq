@@ -169,14 +169,17 @@ def makeTable(buffer,initLoc,hashSize,size):
         match char:
             case "N":
                 loc += 1
+                Hash._hash = 0
             case _:
                 Hash._rollHash(char)
+                print(Hash._hash)
                 loc += 1
                 if len(str(Hash._hash)) > _hashSize:
                     hashTable.insert(Hash._hash,loc)
-        
-        if loc % 1_000_000 == 0:
+
+        if loc % 10_000 == 0:
             print(loc)
+            print(Hash._hash)
 
     return hashTable
 
@@ -203,12 +206,14 @@ if __name__ == "__main__":
     #a.deleteIndex(49)
     #a.print_table()
 
-    with open("/home/sadi/Data/Homo_sapiens.GRCh38.dna.chromosome.11.fa.masked","r") as f:
-        f.readline()
-        buffer = f.read().replace("\n","")
+    #with open("/home/sadi/Data/Homo_sapiens.GRCh38.dna.chromosome.11.fa.masked","r") as f:
+        #f.readline()
+        #buffer = f.read().replace("\n","")
 
-    hashTable = makeTable(buffer,1,18,1000000007)
-    
+    #hashTable = makeTable(buffer,1,3,64)
+
+    hashTable1 = makeTable("ANTGC",1,3,64) #TODO : Araya N giren 3'lü KMerlerin arasına N için 0 koyuyor. 
+    print(hashTable1)                      #       Sorun olabilir. Mesela ANT için 102 yazıyor. 
     y = time.time()
 
     print(f"Islem {y - x} saniye surdu.")
