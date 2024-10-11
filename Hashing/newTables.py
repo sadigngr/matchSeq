@@ -172,14 +172,10 @@ def makeTable(buffer,initLoc,hashSize,size):
                 Hash._hash = 0
             case _:
                 Hash._rollHash(char)
-                print(Hash._hash)
                 loc += 1
                 if len(str(Hash._hash)) > _hashSize:
                     hashTable.insert(Hash._hash,loc)
 
-        if loc % 10_000 == 0:
-            print(loc)
-            print(Hash._hash)
 
     return hashTable
 

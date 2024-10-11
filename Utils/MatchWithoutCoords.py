@@ -2,6 +2,9 @@ from Hashing.newTables import HashTable,makeTable
 from Hashing.Hash import Hasher
 
 def matchWCoords(buffer1,buffer2):
+    
+    matchTable = HashTable(64)
+
     table1 = makeTable(buffer1,1,3,64)
     table2 = makeTable(buffer2,1,3,64)
 

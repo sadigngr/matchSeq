@@ -70,21 +70,19 @@ if __name__ == "__main__":
     region_size = 30
     similarity_threshold = 0.5
 
-    with open("/Users/sadi/Desktop/sonuclar.txt.nosync.txt", "r") as f:
-        try:
-            while True:
-                match1, len1 = f.readline()[1:].split("-")
-                loc1, loc2 = f.readline()[1:].split("_")
-                match2, len2 = f.readline()[1:].split("-")
-                loc3, loc4 = f.readline()[1:].split("_")
-                seqid = f.readline()
-                seq1 = f.readline().strip()
-                f.readline()
-                seq2 = f.readline().strip()
-                f.readline()
+    seq1 = "ATGCTATATAGCTAGCTGATCGATGCTAGCTGAGCTAGCTAGATCGAAAAAAAAATTTTTTGGCGCGCGCTATATGAATCGATAGC"
+    seq2 = "CTAGCCGCGATGCGCGCGCGCGGCGCGCTAGCATAGCGCGATGGGGCTCGAGCTGATCGCTAGCTGCTAGCTAGCTAGCTAGGGCCGCGCGGCTAGCGT"
 
-                process_sequences(seqid, seq1, seq2, region_size, similarity_threshold)
+    u1,u2 = findRegions(seq1,seq2,region_size,similarity_threshold)
+    print(u1,u2)
+    with open("rast.txt","w") as f:
+        f.writelines(">Seq1\n")
+        f.writelines(seq1 + "\n")
+        f.writelines(str(u1) + "\n")
+        f.writelines(">Seq2\n")
+        f.writelines(seq2 + "\n")
+        f.writelines(str(u2) + "\n") 
+        
 
-        except ValueError:
-            print("Dosya Sonu")
+
 
