@@ -9,3 +9,10 @@ def _read(_PATH1,_PATH2):
         _buffer = r.read().replace("\n","")
 
     return buffer,_buffer
+
+def _read_one(_PATH):
+    with open(_PATH,"r") as f:
+        f.readline()
+        buffer = f.read().replace("\n","")
+
+    return buffer

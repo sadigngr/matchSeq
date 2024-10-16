@@ -158,6 +158,7 @@ class HashTable:
         return _llist
 
 def makeTable(buffer,initLoc,hashSize,size):
+    sayac = 0
     hashTable = HashTable(size)
     _hashSize = hashSize - 1
 
@@ -169,13 +170,18 @@ def makeTable(buffer,initLoc,hashSize,size):
         match char:
             case "N":
                 loc += 1
+                sayac += 1
                 Hash._hash = 0
             case _:
                 Hash._rollHash(char)
                 loc += 1
+                sayac += 1
                 if len(str(Hash._hash)) > _hashSize:
                     hashTable.insert(Hash._hash,loc)
-
+        
+        if sayac % 1_000_000 == 0:
+            print(sayac)
+            print(loc)
 
     return hashTable
 
@@ -196,8 +202,9 @@ if __name__ == "__main__":
     print(a.getValue(177))
     print(a.getHash(49))
     a.deleteHash(369)
-    a.deleteHash(177)
     print(a)
+
+    print(a.getLocs())
 
     #a.deleteIndex(49)
     #a.print_table()
@@ -208,8 +215,8 @@ if __name__ == "__main__":
 
     #hashTable = makeTable(buffer,1,3,64)
 
-    hashTable1 = makeTable("ANTGC",1,3,64) #TODO : Araya N giren 3'lü KMerlerin arasına N için 0 koyuyor. 
-    print(hashTable1)                      #       Sorun olabilir. Mesela ANT için 102 yazıyor. 
+    #hashTable1 = makeTable("ANTGC",1,3,64) #TODO : Araya N giren 3'lü KMerlerin arasına N için 0 koyuyor. 
+    #print(hashTable1)                      #       Sorun olabilir. Mesela ANT için 102 yazıyor. 
     y = time.time()
 
     print(f"Islem {y - x} saniye surdu.")

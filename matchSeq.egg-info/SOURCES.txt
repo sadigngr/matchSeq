@@ -7,9 +7,12 @@ Hashing/__init__.py
 Hashing/newTables.py
 Utils/Bases.py
 Utils/Errors.py
+Utils/MatchLocations.py
 Utils/MatchWithCoords.py
 Utils/MatchWithoutCoords.py
 Utils/UniqueRegions2.py
+Utils/UniqueRegions3.py
+Utils/UniqueRegions4.py
 Utils/__init__.py
 Utils/locs.py
 matchSeq.egg-info/PKG-INFO

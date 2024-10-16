@@ -6,7 +6,9 @@ from Utils.locs import getLocsList
 
 def matchCoords(coords,buffer1,buffer2):
     locs = getLocsList(coords)
+    
     matchTable = HashTable(64)
+
     for pairs in locs:
 
         start1 = int(pairs[0][0])
