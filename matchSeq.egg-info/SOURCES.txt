@@ -20,3 +20,5 @@ matchSeq.egg-info/SOURCES.txt
 matchSeq.egg-info/dependency_links.txt
 matchSeq.egg-info/entry_points.txt
 matchSeq.egg-info/top_level.txt
+tests/test_key.py
+tests/testtable.py

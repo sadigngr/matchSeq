@@ -1,6 +1,6 @@
 helpPage = """
 
-Usage : python3 matchTable.py --filter(optional) --seqFiles [path-to-first-seqFile] [path-to-second-seqFile] --coords(optional) [path-to-coordsFile] 
+Usage : matchseq --filter(optional) --seqFiles [path-to-first-seqFile] [path-to-second-seqFile] --coords(optional) [path-to-coordsFile] 
 
 Arguments : 
 
@@ -34,6 +34,11 @@ def main():
     seq_len_max = 300
     seq_len_min = 150
     path1,path2,coords,locations = None,None,None,False
+    argsList = ["-h","--help","-s","--seqFiles","-c","--coords","-f","--filter"]
+    
+    for i in sys.argv[1:]:
+        if i not in argsList:
+            raise BadArgsError()
     try:
         if sys.argv[1] == "-h" or "--help" and len(sys.argv) == 2:
             print(helpPage)
@@ -49,8 +54,6 @@ def main():
             coords = sys.argv[i+1]
         elif j == "-f" or j == "--filter":
             locations = True
-    if path1 is None or path2 is None:
-        raise BadArgsError()
 
         # Custom Error, Utils.Errors modulunun icinde yer aliyor.
     

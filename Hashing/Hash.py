@@ -52,7 +52,7 @@ class Hasher:
         self._hash = value
 
 if __name__ == "__main__":
-    with open("/home/sadi/Data/Homo_sapiens.GRCh38.dna.chromosome.11.fa.masked","r") as f:
+    with open("/home/sadigungor/Desktop/matchseq/Homo_sapiens.GRCh38.dna.chromosome.11.fa.masked","r") as f:
         f.readline()
         buffer = f.read().replace("\n","")
     x = 0
